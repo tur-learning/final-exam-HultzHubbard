@@ -1,6 +1,7 @@
 import os
 import zipfile
 from PIL import Image
+import json
 
 def zip_images(folder_path, zip_path):
     """
@@ -33,3 +34,18 @@ def convert_png_to_jpg(folder_path):
                 rgb_img = white_bg.convert("RGB")
                 rgb_img.save(output_path, "JPEG")
             os.remove(input_path)
+
+def load_data(filename):
+    """
+    Loads data from a JSON file.
+
+    Parameters:
+    filename (str): The path to the JSON file.
+
+    Returns:
+    dict: Parsed JSON data.
+    """
+    with open(filename, "r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    return data

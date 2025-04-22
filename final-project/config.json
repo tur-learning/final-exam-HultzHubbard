@@ -1,7 +1,7 @@
 {
-    "download": false,
+    "download": true,
     "image_directory": "path/to/image/dir",
-    "use_dust3r": true,
+    "use_dust3r": false,
     "use_mast3r": true,
     "preprocess_image": true,
     "view_output": true
