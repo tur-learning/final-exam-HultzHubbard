@@ -18,3 +18,12 @@ utils.py  contains utilities
 # store and view retreived 3D model
 model.glb holds the 3D model after the API retreive the final result
 viewer.html can be used to view the model (enter "python -m http.server" in terminal and follow instructions)
+
+# Flow
+1. downloads pictures from photos.zip
+2. resets config.json to default (everything false)
+3. user inputs whether they want to process images first or not
+4. user inputs whether they want to use dust3r or mast3r 3D image generators
+5. computer uses inputs to determin whether or not to process images and which generator to use
+6. path determined by the computer is then executed
+7. result is stored in model.glb

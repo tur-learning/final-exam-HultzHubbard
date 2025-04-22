@@ -98,17 +98,17 @@ print("\nStarting 3D image generation\n")
 
 if preprocessing == False:
     if dust3r == True:
-        print("\nWe are going to use dust3r APIs")
+        print("We are going to use dust3r APIs")
         send_request("photos.zip")
     if mast3r == True:
-        print("\nWe are going to use mast3r APIs")
+        print("We are going to use mast3r APIs")
         make3D("raw")
 elif preprocessing == True:
     print("We are going to preprocess the image to remove the background")
     preprocess()
     if dust3r == True:
-        print("\nWe are going to use dust3r APIs")
+        print("We are going to use dust3r APIs")
         send_request("processed_images.zip")
     if mast3r == True:
-        print("\nWe are going to use mast3r APIs")
+        print("We are going to use mast3r APIs")
         make3D("process")
