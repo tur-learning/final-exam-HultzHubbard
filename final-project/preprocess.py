@@ -1,7 +1,7 @@
 from gradio_client import Client, handle_file
 import os, shutil
 from pathlib import Path
-from utils import convert_png_to_jpg
+from utils import convert_png_to_jpg, zip_images
 import zipfile
 
 def preprocess():
@@ -50,7 +50,4 @@ def preprocess():
         processed_zip.unlink()  # Deletes the file
         
     # Create a ZIP archive of processed images
-    with zipfile.ZipFile("processed_images.zip", "w") as zipf:
-        for idx, item in enumerate(preprocessed_dir.iterdir()):
-            filename = f"processed_image_{idx + 1}.jpg"  # Adjust extension based on image format
-            zipf.write(item, arcname=filename)  # Add the file itself to the archive
+    zip_images("preprocessed", "processed_images.zip")
