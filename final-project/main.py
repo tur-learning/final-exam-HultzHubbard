@@ -5,15 +5,15 @@ from download_images import download_google_drive_file, file_ids
 from dust3r import send_request
 from mast3r import make3D
 from preprocess import preprocess
-from utils import load_data, download_zip, add_photo, delete_photo
+from utils import load_data, download_zip, add_photo, delete_photo, startup
+import subprocess
 
 # To download the info from photos.zip
 # for i in file_ids:
 #     download_google_drive_file(i)
 
-# download_zip("uploaded_photos.zip", "uploaded")
-# add_photo("/workspaces/final-exam-HultzHubbard/final-project/uploaded/Python/IMG_6533.JPEG", "IMG_6533")
-# delete_photo("/workspaces/final-exam-HultzHubbard/final-project/downloads/IMG_6533.jpg", "IMG_6533")
+# startup functions (download a new zip, add/delete photos from downloads)
+startup()
 
 # ----------------------------------------------------------------------------------------------------------------------------------
 # 2
@@ -116,3 +116,6 @@ elif preprocessing == True:
     if mast3r == True:
         print("We are going to use mast3r APIs")
         make3D("process")
+
+# run "python -m http.server"
+subprocess.run(["python", "-m", "http.server", "8000"])

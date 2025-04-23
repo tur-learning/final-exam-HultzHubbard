@@ -30,3 +30,4 @@ viewer.html can be used to view the model (enter "python -m http.server" in term
 5. computer uses inputs to determin whether or not to process images and which generator to use
 6. path determined by the computer is then executed
 7. result is stored in model.glb
+8. run "python -m http.server"

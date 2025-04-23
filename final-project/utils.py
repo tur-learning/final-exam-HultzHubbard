@@ -121,3 +121,29 @@ def delete_photo(filepath, id):
 
     print(f"{id} has been deleted")
     
+def startup():
+    downloadzip = input("Is there a zip file with pictures you wish to download? (enter 'yes' or 'no'): ")
+    if downloadzip == "yes":
+        zippath = input("What is the name of the zip file you wish to be downloaded? (ex. 'example.zip'): ")
+        downloadpath = input("What is the name of the folder you want the contents of the zip file to be downloaded to? (ex. 'example'): ")
+        download_zip(zippath, downloadpath)
+    else:
+        print("\n")
+
+    addtodownloads = input("Is there a photo you wish to ADD to the current photos that will be used in the program? (enter 'yes' or 'no'): ")
+    while addtodownloads == "yes":
+        imagepath = input("Please input the image path here (ex. '/your/image/path/here'): ")
+        imageid = input("Please input the name of the image (ex. 'IMG_1111'): ")
+        add_photo(imagepath, imageid)
+        addtodownloads = input("Is there another photo you wish to ADD to the current photos that will be used in the program? (enter 'yes' or 'no'): ")
+        if addtodownloads == "no":
+            print("\n")
+
+    deletefromdownloads = input("Is there a photo you wish to DELETE to the current photos that will be used in the program? (enter 'yes' or 'no'): ")
+    while deletefromdownloads == "yes":
+        imagepath = input("Please input the image path here (ex. '/your/image/path/here'): ")
+        imageid = input("Please input the name of the image (ex. 'IMG_1111'): ")
+        delete_photo(imagepath, imageid)
+        deletefromdownloads = input("Is there another photo you wish to DELETE to the current photos that will be used in the program? (enter 'yes' or 'no'): ")
+        if deletefromdownloads == "no":
+            print("\n")
