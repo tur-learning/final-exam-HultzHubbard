@@ -14,6 +14,9 @@ utils.py  contains utilities
     - extracts information from json files so the config.json file can be used
     - converts png fils to jpg
     - turns a file into a zip
+    - dowload the content of a zip file to a folder for usage
+    - add a photo to dowloads so they can be used in the code
+    - delete an unwanted photo
 
 # store and view retreived 3D model
 model.glb holds the 3D model after the API retreive the final result

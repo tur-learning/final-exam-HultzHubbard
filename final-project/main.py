@@ -5,11 +5,15 @@ from download_images import download_google_drive_file, file_ids
 from dust3r import send_request
 from mast3r import make3D
 from preprocess import preprocess
-from utils import load_data
+from utils import load_data, download_zip, add_photo, delete_photo
 
 # To download the info from photos.zip
 # for i in file_ids:
 #     download_google_drive_file(i)
+
+# download_zip("uploaded_photos.zip", "uploaded")
+# add_photo("/workspaces/final-exam-HultzHubbard/final-project/uploaded/Python/IMG_6533.JPEG", "IMG_6533")
+# delete_photo("/workspaces/final-exam-HultzHubbard/final-project/downloads/IMG_6533.jpg", "IMG_6533")
 
 # ----------------------------------------------------------------------------------------------------------------------------------
 # 2

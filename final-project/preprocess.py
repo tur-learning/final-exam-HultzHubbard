@@ -41,6 +41,8 @@ def preprocess():
         processed_filename = f"processed_image_{idx}{result.suffix}"
         shutil.copyfile(result, os.path.join("preprocessed", processed_filename))
 
+    print("\n")
+
     # Images are converted to jpg for integration with dust3r model
     convert_png_to_jpg(preprocessed_dir)
 

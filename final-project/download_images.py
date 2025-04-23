@@ -1,16 +1,9 @@
 import requests
 import os
+from utils import load_data
 
-# Google Drive file IDs
-# You may want to add file ids to the config file, so the user
-# can chose them without modifying the code
-file_ids = [
-    "17QxZpfjLsL5BElf0OYNwBU0hq4wr1MG_",
-    "19vAoGLwLDXrr620WHmpkNXiNwZXCVcnt",
-    "1LANtLNxl5UzKY1j7gofH-kdugJeEtkLX",
-    "1DEQyClx4Be_hQtq1f3xtc2X9Smz8R686",
-    "1nIhExOE8asL0-7SSHx87BUij5TPxXfwj"
-]
+x = load_data("config.json")
+file_ids = x.get("file_ids")
 
 def download_google_drive_file(file_id, dest_folder="./downloads"):
     os.makedirs(dest_folder, exist_ok=True)
