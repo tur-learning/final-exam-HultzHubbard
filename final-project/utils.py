@@ -147,3 +147,60 @@ def startup():
         deletefromdownloads = input("Is there another photo you wish to DELETE to the current photos that will be used in the program? (enter 'yes' or 'no'): ")
         if deletefromdownloads == "no":
             print("\n")
+
+def inputconfig():
+    # define the json file path
+    json_file = "config.json"
+    # load existing json data
+    try:
+        with open(json_file, "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        data = {}  # If the file doesn't exist, start with an empty dictionary
+    # set all values to "false"
+    key1 = "preprocess_image"
+    key2 = "use_mast3r"
+    key3 = "use_dust3r"
+    value = False
+    # reset json data
+    data[key1] = value
+    data[key2] = value
+    data[key3] = value
+    with open(json_file, "w") as file:
+        json.dump(data, file, indent=4)
+
+    # get user input about if they want to use processed images
+    print("There are two factors you need to input. Please answer as indicated.\n")
+    key = "preprocess_image"
+    init = input("Would you like to use processed images (images with the background removed)? If so, enter 'yes'. Else enter 'no': ")
+    while init not in ["yes", "no"]:
+        init = input("You must enter either 'yes' or 'no'. Would you like to use processed images (images with the background removed)?: ")
+    if init == "yes":
+        value = True
+    elif init == "no":
+        value = False
+    # update json data
+    data[key] = value
+    # save the changes
+    with open(json_file, "w") as file:
+        json.dump(data, file, indent=4)
+
+    # get user input about which 3D processer they want to use
+    init = ""
+    while init not in ["mast3r", "dust3r"]:
+        init = input("\nWhich 3D image generator do you wish to use, mast3r or dust3r? (you must answer with either mast3r or dust3r): ")
+    if init == "mast3r":   
+        key = "use_mast3r"
+        value = True
+    elif init == "dust3r":
+        key = "use_dust3r"
+        value = True
+    else:
+        input("Which 3D image generator do you wish to use, mast3r or dust3r? (you must answer with either mast3r or dust3r): ")
+    # update json data
+    data[key] = value
+    # save the changes
+    with open(json_file, "w") as file:
+        json.dump(data, file, indent=4)
+        
+    print("Information updated successfully!")

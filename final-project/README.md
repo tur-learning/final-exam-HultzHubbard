@@ -17,6 +17,7 @@ utils.py  contains utilities
     - dowload the content of a zip file to a folder for usage
     - add a photo to dowloads so they can be used in the code
     - delete an unwanted photo
+    - function to configure program parameters 
 
 # store and view retreived 3D model
 model.glb holds the 3D model after the API retreive the final result
@@ -24,10 +25,12 @@ viewer.html can be used to view the model (enter "python -m http.server" in term
 
 # Flow
 1. downloads pictures from photos.zip
-2. resets config.json to default (everything false)
-3. user inputs whether they want to process images first or not
-4. user inputs whether they want to use dust3r or mast3r 3D image generators
-5. computer uses inputs to determin whether or not to process images and which generator to use
-6. path determined by the computer is then executed
-7. result is stored in model.glb
-8. run "python -m http.server"
+2. gets user input on if there are new zip files to download
+3. gets user input on if there are photos they want to add or delete from the relevent files for the program
+4. resets config.json to default (everything false)
+5. user inputs whether they want to process images first or not
+6. user inputs whether they want to use dust3r or mast3r 3D image generators
+7. computer uses inputs to determin whether or not to process images and which generator to use
+8. path determined by the computer is then executed
+9. result is stored in model.glb
+10. run "python -m http.server"
