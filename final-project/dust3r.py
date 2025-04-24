@@ -1,5 +1,4 @@
 import requests
-import os
 from utils import zip_images
 
 def send_request(glb_file_path):

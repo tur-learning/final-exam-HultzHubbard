@@ -1,5 +1,4 @@
 import os
-import requests
 from gradio_client import Client, handle_file
 import shutil
 from download_images import download_google_drive_file, file_ids

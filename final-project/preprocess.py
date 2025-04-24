@@ -2,7 +2,6 @@ from gradio_client import Client, handle_file
 import os, shutil
 from pathlib import Path
 from utils import convert_png_to_jpg, zip_images
-import zipfile
 
 def preprocess():
     # This variable can be put in the config file
@@ -26,7 +25,7 @@ def preprocess():
             result = client.predict(
                 file=handle_file(os.path.join(root, image)),
                 mask="Default",
-                model="u2netp", # You can change the model if you wish, or add it as a config parameter
+                model="u2netp",
                 x=3,
                 y=3,
                 api_name="/inference"
@@ -43,13 +42,13 @@ def preprocess():
 
     print("\n")
 
-    # Images are converted to jpg for integration with dust3r model
+    # images are converted to jpg for integration with dust3r model
     convert_png_to_jpg(preprocessed_dir)
 
-    # Delete existing processed_images.zip if it exists
+    # delete existing processed_images.zip if it exists
     processed_zip = Path("processed_images.zip")
     if processed_zip.exists():
-        processed_zip.unlink()  # Deletes the file
+        processed_zip.unlink()
         
-    # Create a ZIP archive of processed images
+    # create a zip archive of processed images
     zip_images("preprocessed", "processed_images.zip")
